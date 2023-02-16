@@ -30,7 +30,7 @@ public class StudentController {
 	
 	@GetMapping("/access-denied")
 	public ModelAndView accessDenied() {
-		ModelAndView modelAndView = new ModelAndView("/access-denied");
+		ModelAndView modelAndView = new ModelAndView("access-denied");
 		return modelAndView;
 	}
 }

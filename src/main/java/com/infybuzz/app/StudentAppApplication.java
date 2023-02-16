@@ -1,6 +1,5 @@
 package com.infybuzz.app;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -8,9 +7,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
-import com.infybuzz.entity.User;
-import com.infybuzz.repository.UserRepository;
 
 @SpringBootApplication
 @ComponentScan({"com.infybuzz.controller", "com.infybuzz.service",
@@ -20,7 +16,6 @@ import com.infybuzz.repository.UserRepository;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class StudentAppApplication {
 
-    
 	public static void main(String[] args) {
 		
 		/*
@@ -28,17 +23,8 @@ public class StudentAppApplication {
 		 * String password1 = bCryptPasswordEncoder.encode("john123"); String password2
 		 * = bCryptPasswordEncoder.encode("sachin123");
 		 */
-//	    initDataUser();
+		
 		SpringApplication.run(StudentAppApplication.class, args);
 	}
 
-	public static void initDataUser() {
-	    BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-	    String password = bCryptPasswordEncoder.encode("123456");
-	    System.out.println(password);
-	    // $2a$10$.u5yxoqVUFJ4Abqb8inNpuiXpeDitGueDrh06EL0nGS06wG7k06q2
-	    User user = new User("hung","hoang", "hunghoang@gmail.com", "hunghoang", password);
-	    User userAdmin = new User("hung","hoang", "hunghoangadmin@gmail.com", "hunghoangadmin", password);
-	}
-	
 }
